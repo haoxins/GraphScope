@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>GraphScope: 一站式图计算系统 &mdash; GraphScope  documentation</title>
@@ -26,10 +27,25 @@
 
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="安装" href="installation.html" />
-    <link rel="prev" title="Analytical Engine API Reference" href="../reference/analytical_engine_index.html" /> 
+    <link rel="prev" title="Analytical Engine API Reference" href="../reference/analytical_engine_index.html" />
+
+ 
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4TMYCGJ0X2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4TMYCGJ0X2');
+</script>
+
+
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -57,6 +73,10 @@
           
             
             
+              <div class="version">
+                stable
+              </div>
+            
           
 
           
@@ -80,19 +100,21 @@
         
       
       
-        <p class="caption"><span class="caption-text">目录</span></p>
+        <p><span class="caption-text">目录</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">安装</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">快速上手</a></li>
 <li class="toctree-l1"><a class="reference internal" href="deployment.html">部署</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials.html">入门教程</a></li>
 <li class="toctree-l1"><a class="reference internal" href="loading_graph.html">载图</a></li>
-<li class="toctree-l1"><a class="reference internal" href="interactive_engine.html">图交互式分析引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graph_transformation.html">图的变换操作</a></li>
 <li class="toctree-l1"><a class="reference internal" href="analytics_engine.html">图分析引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interactive_engine.html">图交互式分析引擎</a></li>
 <li class="toctree-l1"><a class="reference internal" href="learning_engine.html">图学习引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frequently_asked_questions.html">常见问题</a></li>
 <li class="toctree-l1"><a class="reference internal" href="developer_guide.html">开发者指南</a></li>
 </ul>
-<p class="caption"><span class="caption-text">API 参考</span></p>
+<p><span class="caption-text">API 参考</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://graphscope.io/docs/reference/python_index.html">Python API 参考</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://graphscope.io/docs/reference/analytical_engine_index.html">图分析引擎 API 参考</a></li>
@@ -160,7 +182,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="graphscope">
+  <section id="graphscope">
 <h1>GraphScope: 一站式图计算系统<a class="headerlink" href="#graphscope" title="Permalink to this headline">¶</a></h1>
 <p>GraphScope 是阿里巴巴达摩院智能计算实验室研发并开源的一站式图计算平台。
 依托于阿里海量数据和丰富场景，与达摩院的高水平研究，
@@ -180,7 +202,7 @@ GraphScope 的交互查询引擎的论文已被 NSDI 2021录用。
 还有其它围绕 GraphScope 的十多项研究成果发表在领域顶级的学术会议或期刊上，
 如 TODS、SIGMOD、VLDB、KDD等。</p>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">目录</span></p>
+<p><span class="caption-text">目录</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">安装</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">快速上手</a><ul>
@@ -193,22 +215,44 @@ GraphScope 的交互查询引擎的论文已被 NSDI 2021录用。
 <li class="toctree-l2"><a class="reference internal" href="getting_started.html#id8">关闭会话</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="deployment.html">部署</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployment.html">部署</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#helmgraphscope">使用Helm部署GraphScope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#aws">在AWS/阿里云上部署集群</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#graphscope">本地部署GraphScope</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials.html">入门教程</a><ul>
 <li class="toctree-l2"><a class="reference external" href="https://nbviewer.jupyter.org/github/alibaba/GraphScope/blob/main/tutorials/zh/1_how_to_launch_a_session.ipynb">如何创建会话</a></li>
-<li class="toctree-l2"><a class="reference external" href="https://nbviewer.jupyter.org/github/alibaba/GraphScope/blob/main/tutorials/zh/2_loading_graphs.ipynb">载图</a></li>
-<li class="toctree-l2"><a class="reference external" href="https://nbviewer.jupyter.org/github/alibaba/GraphScope/blob/main/tutorials/zh/3_builtin_analytical_algorithms.ipynb">内置图分析算法</a></li>
-<li class="toctree-l2"><a class="reference external" href="https://nbviewer.jupyter.org/github/alibaba/GraphScope/blob/main/tutorials/zh/4_writing_your_own_algorithms.ipynb">编写自定义图分析算法</a></li>
-<li class="toctree-l2"><a class="reference external" href="https://nbviewer.jupyter.org/github/alibaba/GraphScope/blob/main/tutorials/zh/5_interactive_query_with_gremlin.ipynb">基于Gremlin的交互式查询</a></li>
-<li class="toctree-l2"><a class="reference external" href="https://nbviewer.jupyter.org/github/alibaba/GraphScope/blob/main/tutorials/zh/6_unsupervised_learning_with_graphsage.ipynb">基于GraphSage的无监督学习</a></li>
-<li class="toctree-l2"><a class="reference external" href="https://nbviewer.jupyter.org/github/alibaba/GraphScope/blob/main/tutorials/zh/7_supervised_learning_with_gcn.ipynb">基于GCN的有监督学习</a></li>
-<li class="toctree-l2"><a class="reference external" href="https://nbviewer.jupyter.org/github/alibaba/GraphScope/blob/main/tutorials/zh/8_node_classification_on_citation_network.ipynb">论文引用网络中的节点分类任务</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://nbviewer.jupyter.org/github/alibaba/GraphScope/blob/main/tutorials/zh/2_graph_manipulations_with_networkx_compatible_apis.ipynb">使用兼容 NetworkX 的 API 进行图操作</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://nbviewer.jupyter.org/github/alibaba/GraphScope/blob/main/tutorials/zh/3_loading_graphs.ipynb">载图</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://nbviewer.jupyter.org/github/alibaba/GraphScope/blob/main/tutorials/zh/4_builtin_analytical_algorithms.ipynb">内置图分析算法</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://nbviewer.jupyter.org/github/alibaba/GraphScope/blob/main/tutorials/zh/5_writing_your_own_algorithms.ipynb">编写自定义图分析算法</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://nbviewer.jupyter.org/github/alibaba/GraphScope/blob/main/tutorials/zh/6_interactive_query_with_gremlin.ipynb">基于Gremlin的交互式查询</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://nbviewer.jupyter.org/github/alibaba/GraphScope/blob/main/tutorials/zh/7_unsupervised_learning_with_graphsage.ipynb">基于GraphSage的无监督学习</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://nbviewer.jupyter.org/github/alibaba/GraphScope/blob/main/tutorials/zh/8_supervised_learning_with_gcn.ipynb">基于GCN的有监督学习</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://nbviewer.jupyter.org/github/alibaba/GraphScope/blob/main/tutorials/zh/9_unsupervised_learning_with_bipartite_graphsage.ipynb">基予BipartiteGraphSage的二部图无监督学习</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://nbviewer.jupyter.org/github/alibaba/GraphScope/blob/main/tutorials/zh/10_node_classification_on_citation_network.ipynb">论文引用网络中的节点分类任务</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="loading_graph.html">载图</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="loading_graph.html#id3">配置图</a></li>
 <li class="toctree-l2"><a class="reference internal" href="loading_graph.html#numpy-pandas">从 Numpy 和 Pandas 中载图</a></li>
-<li class="toctree-l2"><a class="reference internal" href="loading_graph.html#id11">从文件路径载图</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loading_graph.html#id5">从文件路径载图</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="graph_transformation.html">图的变换操作</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="graph_transformation.html#id2">添加新的标签</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graph_transformation.html#id3">投影</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graph_transformation.html#id4">自动转换为简单图</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graph_transformation.html#id5">将计算结果作为新的属性加入图中</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="analytics_engine.html">图分析引擎</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="analytics_engine.html#id2">内置算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analytics_engine.html#id3">对计算结果的处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analytics_engine.html#pie">使用 PIE 编程模型自定义算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analytics_engine.html#pregel">使用 Pregel 编程模型自定义算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analytics_engine.html#id5">运行自定义算法</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="interactive_engine.html">图交互式分析引擎</a><ul>
@@ -220,43 +264,37 @@ GraphScope 的交互查询引擎的论文已被 NSDI 2021录用。
 <li class="toctree-l2"><a class="reference internal" href="interactive_engine.html#gremlin-tinkerpop">Gremlin兼容性（对比TinkerPop）</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="analytics_engine.html">图分析引擎</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="analytics_engine.html#id2">内置算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="analytics_engine.html#id3">对计算结果的处理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="analytics_engine.html#pie">使用 PIE 编程模型自定义算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="analytics_engine.html#pregel">使用 Pregel 编程模型自定义算法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="analytics_engine.html#id5">运行自定义算法</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="learning_engine.html">图学习引擎</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="learning_engine.html#id2">图学习模型</a></li>
 <li class="toctree-l2"><a class="reference internal" href="learning_engine.html#id5">自定义算法</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="frequently_asked_questions.html">常见问题</a></li>
 <li class="toctree-l1"><a class="reference internal" href="developer_guide.html">开发者指南</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="developer_guide.html#id2">构建和测试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide.html#docker-graphscope">基于 Docker 镜像在本地构建并测试 GraphScope</a></li>
 <li class="toctree-l2"><a class="reference internal" href="developer_guide.html#python-wheels">构建 Python Wheels</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_guide.html#id3">代码风格</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide.html#id4">代码风格</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">API 参考</span></p>
+<p><span class="caption-text">API 参考</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://graphscope.io/docs/reference/python_index.html">Python API 参考</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://graphscope.io/docs/reference/analytical_engine_index.html">图分析引擎 API 参考</a></li>
 </ul>
 </div>
-</div>
-<div class="section" id="id1">
+</section>
+<section id="id1">
 <h1>索引<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p><a class="reference internal" href="../genindex.html"><span class="std std-ref">Index</span></a></p></li>
 <li><p><a class="reference internal" href="../py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
 <li><p><a class="reference internal" href="../search.html"><span class="std std-ref">Search Page</span></a></p></li>
 </ul>
-</div>
+</section>
 
 
            </div>
@@ -318,18 +356,152 @@ GraphScope 的交互查询引擎的论文已被 NSDI 2021录用。
   </script>
   
 
-  <div class="rst-versions shift-up" data-toggle="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       <span class="fa fa-book"> Read the Docs</span>
-      v: latest
+      v: stable
       <span class="fa fa-caret-down"></span>
     </span>
     <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          
+
+            
+              
+                <dd><a href="../latest/zh/index.html">latest</a></dd>
+              
+            
+
+          
+        
+          
+
+            
+              
+                <dd><a href="#">stable</a></dd>
+              
+            
+
+          
+        
+          
+
+            
+              
+                <dd><a href="../v0.5.0/zh/index.html">v0.5.0</a></dd>
+              
+            
+
+          
+        
+          
+
+            
+              
+                <dd><a href="../v0.4.1/zh/index.html">v0.4.1</a></dd>
+              
+            
+
+          
+        
+          
+
+            
+              
+                <dd><a href="../v0.4.0/zh/index.html">v0.4.0</a></dd>
+              
+            
+
+          
+        
+          
+
+            
+              
+                <dd><a href="../v0.3.0/zh/index.html">v0.3.0</a></dd>
+              
+            
+
+          
+        
+          
+
+            
+              
+                <dd><a href="../v0.2.1/zh/index.html">v0.2.1</a></dd>
+              
+            
+
+          
+        
+          
+
+            
+              
+                <dd><a href="../v0.2.0/zh/index.html">v0.2.0</a></dd>
+              
+            
+
+          
+        
+          
+
+            
+              
+                <dd><a href="../v0.1.3/zh/index.html">v0.1.3</a></dd>
+              
+            
+
+          
+        
+          
+
+            
+              
+                <dd><a href="../v0.1.2/zh/index.html">v0.1.2</a></dd>
+              
+            
+
+          
+        
+          
+
+            
+              
+                <dd><a href="../v0.1.1/zh/index.html">v0.1.1</a></dd>
+              
+            
+
+          
+        
+          
+
+            
+              
+                <dd><a href="../v0.1.0/zh/index.html">v0.1.0</a></dd>
+              
+            
+
+          
+        
+      </dl>
+    </div>
+  </div>
+
+  <div class="rst-languages shift-up" role="note" aria-label="languages">
+    <div class="rst-other-languages">
       <dl>
         <dt>Languages</dt>
         <dd><a href="../index.html">en</a></dd>
         <dd><a href="#">zh_CN</a></dd>
       </dl>
+
+      <hr />
+      <small>
+        <span>Hosted by <a href="https://pages.github.com/">Github Pages</a>.</span>
+      </small>
     </div>
   </div>
 
